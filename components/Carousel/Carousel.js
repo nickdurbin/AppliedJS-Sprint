@@ -18,10 +18,27 @@
   </div>
 */
 
-let carouselContainer = document.querySelector('.carousel-container');
+// Creating a current index of images
+let images = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg'];
 
-carouselContainer.appendChild(carousel);
-console.log(carouselContainer.appendChild(carousel))
+// Running a forEach to grab each image
+images.forEach((img) => img.images)
+
+// Document variables
+let carouselContainer = document.querySelector('.carousel-container');
+let leftButton = document.querySelector('.left-button');
+let rightButton = document.querySelector('.right-button');
+
+// EventListeners for buttons
+// leftButton.addEventListener('click', () => { 
+//   images.style.display = 'inline-block';
+// });
+
+// rightButton.addEventListener('click', () => { 
+//   images.style.display = 'inline-block';
+// });
+
+carouselContainer.appendChild(Carousel());
 
 function Carousel() {
   // Creating all the elements
@@ -47,10 +64,16 @@ function Carousel() {
   carousel.appendChild(rightBtn);
 
   // Adding image sources
-  img1.src = './assets/carousel/mountains.jpeg';
-  img2.src = './assets/carousel/computer.jpeg';
-  img3.src = './assets/carousel/trees.jpeg';
-  img4.src = './assets/carousel/turntable.jpeg';
+  img1.src = `./assets/carousel/mountains.jpeg`;
+  img2.src = `./assets/carousel/computer.jpeg`;
+  img3.src = `./assets/carousel/trees.jpeg`;
+  img4.src = `./assets/carousel/turntable.jpeg`;
+
+  // Temporary fix
+  img1.style.display = 'inline-block';
+  img2.style.display = 'inline-block';
+  img3.style.display = 'inline-block';
+  img4.style.display = 'inline-block';
 
   // Adding textContent
   leftBtn.textContent = '<';
