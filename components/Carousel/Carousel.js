@@ -18,17 +18,7 @@
   </div>
 */
 
-// Creating a current index of images
-let images = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg'];
-
-// Document variables
-let carouselContainer = document.querySelector('.carousel-container');
-let leftButton = document.querySelector('.left-button');
-let rightButton = document.querySelector('.right-button');
-
-carouselContainer.appendChild(Carousel(images));
-
-function Carousel(image) {
+function Carousel() {
   // Creating all the elements
   const carousel = document.createElement('div');
   const leftBtn = document.createElement('div');
@@ -52,10 +42,10 @@ function Carousel(image) {
   carousel.appendChild(rightBtn);
 
   // Adding image sources
-  img1.src = './assets/carousel/mountains.jpeg';
-  img2.src = './assets/carousel/computer.jpeg';
-  img3.src = './assets/carousel/trees.jpeg';
-  img4.src = './assets/carousel/turntable.jpeg';
+  img1.src = images[i];
+  img2.src = images[i];
+  img3.src = images[i];
+  img4.src = images[i];
 
   // Temporary fix
   img1.style.display = 'inline-block';
@@ -70,6 +60,22 @@ function Carousel(image) {
   return carousel;
 }
 
+// Creating a current index of images
+let images = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg'];
+
+let i = 0;
+
+// Document variables
+let carouselContainer = document.querySelector('.carousel-container');
+
+// Appending Carousel
+carouselContainer.appendChild(Carousel(images));
+
+// Adding EventListeners
+document.querySelector('.left-button').addEventListener('click', showImage);
+document.querySelector('.right-button').addEventListener('click', showImage);
+
+// Functions to move through the index of images
 function plusImage(n) {
   showImage(imageIndex += n);
 }
@@ -80,10 +86,14 @@ function currentImage(n) {
 
 function showImage(n) {
   let i;
-  if (n > images.length) {imageIndex = 1} 
-  if (n < 1) {imageIndex = images.length}
-  for (i = 0; i < images.length; i++) {
-      images[i].style.display = "none"; 
+  if (n > images.length) {
+    imageIndex = 1
+  } 
+  if (n < 1) {
+    imageIndex = images.length
   }
-  images[imageIndex-1].style.display = "block"; 
+  for (i = 0; i < images.length; i++) {
+    images[i].style.display = "none"; 
+  }
+  images[imageIndex-1].style.display = "inline-block"; 
 }
