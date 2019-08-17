@@ -89,11 +89,13 @@ function Cards(data) {
   card.appendChild(headline);
   card.appendChild(author);
   author.appendChild(imageContainer);
+  imageContainer.appendChild(image);
   author.appendChild(byAuthor);
 
   // Adding textContent
   headline.textContent = data.headline;
   image.src = data.authorPhoto;
+  image.textContent = data.image;
   byAuthor.textContent = data.authorName;
 
   return card;
