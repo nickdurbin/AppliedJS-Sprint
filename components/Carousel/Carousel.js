@@ -17,3 +17,44 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+let carouselContainer = document.querySelector('.carousel-container');
+
+carouselContainer.appendChild(carousel);
+console.log(carouselContainer.appendChild(carousel))
+
+function Carousel() {
+  // Creating all the elements
+  const carousel = document.createElement('div');
+  const leftBtn = document.createElement('div');
+  const img1 = document.createElement('img');
+  const img2 = document.createElement('img');
+  const img3 = document.createElement('img');
+  const img4 = document.createElement('img');
+  const rightBtn = document.createElement('div');
+
+  // Adding classes to the elements
+  carousel.classList.add('carousel');
+  leftBtn.classList.add('left-button');
+  rightBtn.classList.add('right-button');
+
+  // Appending all the elements 
+  carousel.appendChild(leftBtn);
+  carousel.appendChild(img1);
+  carousel.appendChild(img2);
+  carousel.appendChild(img3);
+  carousel.appendChild(img4);
+  carousel.appendChild(rightBtn);
+
+  // Adding image sources
+  img1.src = './assets/carousel/mountains.jpeg';
+  img2.src = './assets/carousel/computer.jpeg';
+  img3.src = './assets/carousel/trees.jpeg';
+  img4.src = './assets/carousel/turntable.jpeg';
+
+  // Adding textContent
+  leftBtn.textContent = '<';
+  rightBtn.textContent = '>';
+
+  return carousel;
+}

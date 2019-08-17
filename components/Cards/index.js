@@ -23,7 +23,6 @@ let cardsContainer = document.querySelector('.cards-container');
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then((response) => {
     javascriptArray = response.data.articles.javascript;
-    console.log(response.data.articles.javascript);
     javascriptArray.forEach((item) => cardsContainer.appendChild(Cards(item)));
   })
   .catch((error) => {
@@ -33,7 +32,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   axios.get('https://lambda-times-backend.herokuapp.com/articles')  
   .then((response) => {
     bootstrapArray = response.data.articles.bootstrap;
-    console.log(response.data.articles.bootstrap);
     bootstrapArray.forEach((item) => cardsContainer.appendChild(Cards(item)));
   })
   .catch((error) => {
@@ -43,7 +41,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then((response) => {
     technologyArray = response.data.articles.technology;
-    console.log(response.data.articles.technology);
     technologyArray.forEach((item) => cardsContainer.appendChild(Cards(item)));
   })
   .catch((error) => {
@@ -53,7 +50,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then((response) => {
     jqueryArray = response.data.articles.jquery;
-    console.log(response.data.articles.jquery);
     jqueryArray.forEach((item) => cardsContainer.appendChild(Cards(item)));
   })
   .catch((error) => {
@@ -63,7 +59,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then((response) => {
     nodeArray = response.data.articles.node;
-    console.log(response.data.articles.node);
     nodeArray.forEach((item) => cardsContainer.appendChild(Cards(item)));
   })
   .catch((error) => {
