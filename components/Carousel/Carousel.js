@@ -17,3 +17,82 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function Carousel() {
+  // Creating all the elements
+  const carousel = document.createElement('div');
+  const leftBtn = document.createElement('div');
+  const img1 = document.createElement('img');
+  const img2 = document.createElement('img');
+  const img3 = document.createElement('img');
+  const img4 = document.createElement('img');
+  const rightBtn = document.createElement('div');
+
+  // Adding classes to the elements
+  carousel.classList.add('carousel');
+  leftBtn.classList.add('left-button');
+  rightBtn.classList.add('right-button');
+
+  // Appending all the elements 
+  carousel.appendChild(leftBtn);
+  carousel.appendChild(img1);
+  carousel.appendChild(img2);
+  carousel.appendChild(img3);
+  carousel.appendChild(img4);
+  carousel.appendChild(rightBtn);
+
+  // Adding image sources
+  img1.src = images[i];
+  img2.src = images[i];
+  img3.src = images[i];
+  img4.src = images[i];
+
+  // Temporary fix
+  img1.style.display = 'inline-block';
+  // img2.style.display = 'inline-block';
+  // img3.style.display = 'inline-block';
+  // img4.style.display = 'inline-block';
+
+  // Adding textContent
+  leftBtn.textContent = '<';
+  rightBtn.textContent = '>';
+
+  return carousel;
+}
+
+// Creating a current index of images
+let images = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg'];
+
+let i = 0;
+
+// Document variables
+let carouselContainer = document.querySelector('.carousel-container');
+
+// Appending Carousel
+carouselContainer.appendChild(Carousel(images));
+
+// Adding EventListeners
+document.querySelector('.left-button').addEventListener('click', showImage);
+document.querySelector('.right-button').addEventListener('click', showImage);
+
+// Functions to move through the index of images
+function plusImage(n) {
+  showImage(imageIndex += n);
+}
+
+function currentImage(n) {
+  showImage(imageIndex = n);
+}
+
+function showImage(n) {
+  let i;
+  if (n > images.length) {
+    imageIndex = 1
+  } else if (n < 1) {
+    imageIndex = images.length
+  }
+  for (i = 0; i < images.length; i++) {
+    images[i].style.display = "none";
+  }
+  return images[imageIndex-1].style.display = "inline-block"; 
+}
