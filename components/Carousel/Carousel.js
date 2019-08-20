@@ -88,12 +88,11 @@ function showImage(n) {
   let i;
   if (n > images.length) {
     imageIndex = 1
-  } 
-  if (n < 1) {
+  } else if (n < 1) {
     imageIndex = images.length
   }
   for (i = 0; i < images.length; i++) {
-    images[i].style.display = "none"; 
+    images[i].style.display = "none";
   }
-  images[imageIndex-1].style.display = "inline-block"; 
+  return images[imageIndex-1].style.display = "inline-block"; 
 }
